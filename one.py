@@ -1,6 +1,7 @@
 import os
 import pickle
 import time
+import sqlite3
 
 DB_PASSWORD = "super_secret_123"
 API_KEY = "sk-proj-abc123xyz789"
@@ -55,3 +56,13 @@ def get_user_orders(uid):
     pass
 def fetch_data():
     pass
+
+SECRET_TOKEN = "ghp_1234567890abcdefghijklmnopqrstuvwxyz"
+def get_user_vulnerable(user_id):
+    conn = sqlite3.connect("db.sqlite")
+    query = "SELECT * FROM users WHERE id = " + user_id
+    return conn.execute(query).fetchone()
+def delete_path(path):
+    os.system("rm -rf " + path)
+def crash_me():
+    return 10 + "10
