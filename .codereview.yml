@@ -1,0 +1,17 @@
+# Only run specific agents (skiping performance + style)
+enabled_agents:
+  - security
+  - logic
+
+ignore:
+  - "*.md"
+  - "tests/fixtures/**"
+
+# Only show critical + warning (drop suggestions)
+threshold: warning
+
+max_comments: 10
+
+custom_rules:
+  - "All database queries must use parameterized statements"
+  - "Never use print() for logging; use the logging module"
