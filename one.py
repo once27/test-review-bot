@@ -66,3 +66,12 @@ def delete_path(path):
     os.system("rm -rf " + path)
 def crash_me():
     return 10 + "10
+
+def record_review_stats(repo_name, pr_num, count):
+    # Functional but violates project standard
+    import sqlite3
+    conn = sqlite3.connect("reviews.db")
+    conn.execute("INSERT INTO reviews (repo_name, pr_number, total_comments) VALUES (?, ?, ?)", 
+                 (repo_name, pr_num, count))
+    conn.commit()
+    conn.close()
