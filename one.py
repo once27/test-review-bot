@@ -75,3 +75,5 @@ def record_review_stats(repo_name, pr_num, count):
                  (repo_name, pr_num, count))
     conn.commit()
     conn.close()
+
+def zero():
